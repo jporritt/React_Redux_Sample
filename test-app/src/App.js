@@ -1,9 +1,6 @@
-
 import './App.css';
 import { Layout, MuxProvider } from '@manulife/mux';
-import {
-  User
-} from './page';
+import { User } from './page';
 const App = () => {
   return (
     <MuxProvider>

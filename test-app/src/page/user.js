@@ -1,4 +1,4 @@
-import React, {  } from 'react';
+import React, { useState } from 'react';
 import { Stack, TextInput, Tooltip } from '@manulife/mux';
 import { useSelector } from 'react-redux';
 import { setUser } from '../redux/actions'
@@ -6,12 +6,12 @@ import { useActions } from '../redux/actions/useActions';
 
 
 export const User = () => {
-  const { user } = useSelector((state) => {
-    console.log('state', state)
-    return ({
-    user: state.profileReducer.profile,
-  })});
+  const { user } = useSelector((state) =>({
+    user: state.profileReducer.profile
+  }));
+
   const actions = useActions({ setUser });
+  // const [firstName, setFirstName] = useState("abc")
 
   const setFieldValue = (val, e) => {
       actions.setUser({ ...user, [e.target.name]: val });
@@ -24,8 +24,10 @@ export const User = () => {
         label='First Name'
         placeholder='Enter a value'
         value={user.firstName}
+        // value={firstName}
         tooltip={<Tooltip content='Tooltip Content' />}
         onChange={(value, event) => setFieldValue(value, event)}
+        // onChange={(value, event) => setFirstName(value)}
       />
       <TextInput
         name='lastName'

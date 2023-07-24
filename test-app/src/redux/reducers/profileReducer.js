@@ -28,8 +28,6 @@ export const profileReducer = (state = defaultState, action = {}) => {
         ...state,
       };
     case userConstants.SET_USER:
-        console.log('action.data', action.data)
-        console.log('state', state)
       return {
         ...state,
         profile:action.data
